@@ -9,8 +9,8 @@ public class DiffPrice {
 	private String code;
 	private String name;
 	private Date beginDate;
-	private int beginPrice;
+	private double beginPrice;
 	private Date endDate;
-	private int endPrice;
-	private int profit;
+	private double endPrice;
+	private double profit;
 }

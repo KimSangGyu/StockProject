@@ -11,15 +11,15 @@ public class DailyQuotations {
 	//날짜
 	private Date date;
 	// 종가
-	private int closingPrice;
+	private double closingPrice;
 	// 전일비
-	private int preRatio;
+	private double preRatio;
 	// 시가
-	private int openPrice;
+	private double openPrice;
 	// 고가
-	private int highPrice;
+	private double highPrice;
 	// 저가
-	private int lowPrice;
+	private double lowPrice;
 	// 거래량
-	private int volume;
+	private double volume;
 }

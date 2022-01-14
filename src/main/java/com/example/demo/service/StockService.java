@@ -105,8 +105,10 @@ public class StockService {
 			diffPrice.setEndPrice(endQuotation.getOpenPrice());
 			
 			// 수익율 계산식
-			int profit = (endQuotation.getOpenPrice() - beginQuotation.getOpenPrice()) / 100;
-			diffPrice.setProfit(profit);
+			if (diffPrice.getBeginPrice() != 0) {
+				double profit = ((diffPrice.getEndPrice() - diffPrice.getBeginPrice()) / diffPrice.getBeginPrice()) * 100;
+				diffPrice.setProfit(profit);
+			}
 			
 			diffList.add(diffPrice);
 		}
@@ -156,8 +158,10 @@ public class StockService {
 			diffPrice.setEndPrice(endQuotation.getOpenPrice());
 			
 			// 수익율 계산식
-			int profit = (endQuotation.getOpenPrice() - beginQuotation.getOpenPrice()) / 100;
-			diffPrice.setProfit(profit);
+			if (diffPrice.getBeginPrice() != 0) {
+				double profit = ((diffPrice.getEndPrice() - diffPrice.getBeginPrice()) / diffPrice.getBeginPrice()) * 100;
+				diffPrice.setProfit(profit);
+			}
 			
 			diffList.add(diffPrice);
 		}
@@ -207,9 +211,11 @@ public class StockService {
 			diffPrice.setEndPrice(endQuotation.getOpenPrice());
 			
 			// 수익율 계산식
-			int profit = (endQuotation.getOpenPrice() - beginQuotation.getOpenPrice()) / 100;
-			diffPrice.setProfit(profit);
-			
+			if (diffPrice.getBeginPrice() != 0) {
+				double profit = ((diffPrice.getEndPrice() - diffPrice.getBeginPrice()) / diffPrice.getBeginPrice()) * 100;
+				diffPrice.setProfit(profit);
+			}
+
 			diffList.add(diffPrice);
 		}
 		
