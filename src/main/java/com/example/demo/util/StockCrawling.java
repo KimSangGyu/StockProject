@@ -30,6 +30,12 @@ public class StockCrawling {
 			for(Element tr : trElements) {
 				spanElements = tr.select(".tah");
 				
+				if (spanElements.get(0).text().isEmpty())
+				{
+					isEnd = true;
+					break;
+				}
+				
 				date = Date.valueOf(spanElements.get(0).text().replace('.', '-'));
 				
 				if (date.equals(targetDate) || date.before(targetDate)) {
@@ -44,7 +50,8 @@ public class StockCrawling {
 					
 					isEnd = true;
 					break;
-				}
+				} 
+				
 			}
 			
 			page++;	
