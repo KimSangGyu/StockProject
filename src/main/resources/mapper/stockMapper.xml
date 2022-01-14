@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.StockMapper">
+	<resultMap type="com.example.demo.vo.Sv" id="svMap">
+		<id column="quant_jcode" property="code"/>
+		<result column="quant_jname" property="name"/>
+		<result column="quant_sigachong" property="sigaChong"/>
+		<result column="quant_per" property="per"/>
+		<result column="quant_pbr" property="pbr"/>
+		<result column="quant_pcr" property="pcr"/>
+		<result column="quant_psr" property="psr"/>
+		<result column="quant_order" property="order"/>
+		<result column="quant_gpa" property="gpa"/>
+		<result column="quant_date" property="date" javaType="java.sql.Date"/>
+		<result column="quant_seq" property="seq"/>
+		<result column="quant_price" property="price"/>
+	</resultMap>
+	
+	<resultMap type="com.example.demo.vo.Svqm" id="svqmMap">
+		<id column="quant_jcode" property="code"/>
+		<result column="quant_jname" property="name"/>
+		<result column="quant_sigachong" property="sigaChong"/>
+		<result column="quant_per" property="per"/>
+		<result column="quant_pbr" property="pbr"/>
+		<result column="quant_pcr" property="pcr"/>
+		<result column="quant_psr" property="psr"/>
+		<result column="quant_order" property="order"/>
+		<result column="quant_gpa" property="gpa"/>
+		<result column="quant_date" property="date" javaType="java.sql.Date"/>
+		<result column="quant_seq" property="seq"/>
+		<result column="quant_momentum" property="momentum"/>
+		<result column="quant_price" property="price"/>
+	</resultMap>
+
+	<resultMap type="com.example.demo.vo.NewMagic" id="newMagicMap">
+		<id column="quant_jcode" property="code"/>
+		<result column="quant_jname" property="name"/>
+		<result column="quant_pbr" property="pbr"/>
+		<result column="quant_order" property="order"/>
+		<result column="quant_gpa" property="gpa"/>
+		<result column="quant_date" property="date" javaType="java.sql.Date"/>
+		<result column="quant_seq" property="seq"/>
+		<result column="quant_price" property="price"/>
+	</resultMap>
+	
+	
+	<select id="getSvList" parameterType="string"  resultMap="svMap">
+		<![CDATA[
+		   select * 
+		     from sv 
+		    where quant_date <= #{date}
+		 order by quant_date desc
+		    limit 50
+		 ]]>
+	</select>
+	
+	<select id="getSvqmList" parameterType="string" resultMap="svqmMap">
+		<![CDATA[
+		select * 
+		     from svqm 
+		    where quant_date <= #{date}
+		 order by quant_date desc
+		    limit 50
+		 ]]>
+	</select>
+	
+	<select id="getNewMagicList" parameterType="string" resultMap="newMagicMap">
+		<![CDATA[
+		select * 
+		     from newmagic 
+		    where quant_date <= #{date}
+		 order by quant_date desc
+		    limit 50
+		 ]]>
+	</select>
+</mapper>
